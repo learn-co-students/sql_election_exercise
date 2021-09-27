@@ -1,3 +1,5 @@
+# French Connection SQL WARMUP 
+
 Remember how to connect to an sqlite database?
 
 We need to create a connection and a cursor.  
@@ -69,8 +71,7 @@ cursor.fetchall()
 
 
 ```python
-# There are 8623 elections described in the dataset
-
+# This query helps us familiarize ourselves to the table
 cursor.execute('''SELECT * 
                       FROM view_election 
                   LIMIT 1
@@ -258,10 +259,60 @@ cursor.fetchall()
 
 
 
+# Query 4
+
+Produce a list of all French presidents in the database.  Order by their start dates. 
+HINT: Query the politician_president table.  This table has a country_id associated with the politician.  Join the country table to the politician_president table, and filter by `name_short` which matches the short name of france you used above. 
+
+
+```python
+#__SOLUTION__
+query = '''SELECT DISTINCT p.person_id_source
+            FROM politician_president p 
+            JOIN country c
+            ON p.country_id = c.id
+            WHERE c.name_short='FRA'
+            ORDER BY p.start_date
+
+'''
+
+cursor.execute(query)
+cursor.fetchall()
+```
+
+
+
+
+    [('Armand Fallières',),
+     ('Raymond Poincaré',),
+     ('Paul Deschanel',),
+     ('Alexandre Millerand',),
+     ('Gaston Doumergue',),
+     ('Paul Doumer',),
+     ('Albert Lebrun',),
+     ('Philippe Pétain',),
+     ('Vincent Auriol',),
+     ('René Coty',),
+     ('Charles de Gaulle',),
+     ('Georges Pompidou',),
+     ("Valéry Giscard d'Estaing",),
+     ('François Mitterrand',),
+     ('Jacques Chirac',),
+     ('Nicolas Sarkozy',),
+     ('François Hollande',),
+     ('',)]
+
+
+
 # DON'T FORGET TO CLOSE THE DB CONNECTION WHEN YOU'RE DONE QUERYING!!!!!
 
 
 ```python
 #your code to close the connection here
 conn.close()
+```
+
+
+```python
+
 ```
