@@ -2,7 +2,7 @@
 
 Remember how to connect to an sqlite database?
 
-We need to create a connection and a cursor.  
+To do so, we need to create a connection and a cursor.  
 
 
 ```python
@@ -130,7 +130,22 @@ cursor.description
 
 
 # Query 1: 
-Run a query that shows us all the unique country names (the short version).
+Run a queries the view_election table and returns all unique country names present (the short versions).
+
+
+```python
+# Your code here: 
+query = ''
+cursor.execute(query)
+cursor.fetchall()
+```
+
+
+
+
+    []
+
+
 
 
 ```python
@@ -192,6 +207,21 @@ HINT: Use full string of date: Ex: "2021-28-21"
 
 
 ```python
+# Your code here: 
+query = ''
+cursor.execute(query)
+cursor.fetchall()
+```
+
+
+
+
+    []
+
+
+
+
+```python
 query = '''SELECT COUNT(*) FROM view_election
             WHERE country_name_short = "FRA"
             AND election_date >= "1990-01-01"
@@ -211,9 +241,25 @@ cursor.fetchall()
 
 # Query 3: 
 
-What was the average vote share per party in the UK during the 2000's.
-Order by average votes descending.
-Hint: Use GROUP BY operator (group by needs an aggregate)
+Query the view_election table to see what was the average vote share per party in the England during the 2000's.
+
+> Order by average votes descending.  
+>Hint: Use GROUP BY operator (plus an aggregate) after a WHERE
+
+
+```python
+# Your code here: 
+query = ''
+cursor.execute(query)
+cursor.fetchall()
+```
+
+
+
+
+    []
+
+
 
 
 ```python
@@ -258,7 +304,23 @@ cursor.fetchall()
 # Query 4
 
 Produce a list of all French presidents in the database.  Order by their start dates. 
-HINT: Query the politician_president table.  This table has a country_id associated with the politician.  Join the country table to the politician_president table, and filter by `name_short` which matches the short name of france you used above. 
+
+> HINT: Query the politician_president table.  This table has a country_id associated with the politician.  Join the country table using id to the politician_president table using. Filter by a `name_short` which matches the short name of France you used above. 
+
+
+```python
+# Your code here: 
+query = ''
+cursor.execute(query)
+cursor.fetchall()
+```
+
+
+
+
+    []
+
+
 
 
 ```python
