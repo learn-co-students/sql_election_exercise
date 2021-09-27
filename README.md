@@ -1,3 +1,5 @@
+# French Connection SQL WARMUP 
+
 Remember how to connect to an sqlite database?
 
 We need to create a connection and a cursor.  
@@ -59,8 +61,7 @@ cursor.fetchall()
 
 
 ```python
-# There are 8623 elections described in the dataset
-
+# This query helps us familiarize ourselves to the table
 cursor.execute('''SELECT * 
                       FROM view_election 
                   LIMIT 1
@@ -135,10 +136,20 @@ What was the average vote share per party in the UK during the 2000's.
 Order by average votes descending.
 Hint: Use GROUP BY operator (group by needs an aggregate)
 
+# Query 4
+
+Produce a list of all French presidents in the database.  Order by their start dates. 
+HINT: Query the politician_president table.  This table has a country_id associated with the politician.  Join the country table to the politician_president table, and filter by `name_short` which matches the short name of france you used above. 
+
 # DON'T FORGET TO CLOSE THE DB CONNECTION WHEN YOU'RE DONE QUERYING!!!!!
 
 
 ```python
 #your code to close the connection here
 conn.close()
+```
+
+
+```python
+
 ```
