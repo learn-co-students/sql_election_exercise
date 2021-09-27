@@ -14,7 +14,6 @@ cursor = None
 
 
 ```python
-#__SOLUTION__
 #connect to the db 'parlgov-development' in the data folder
 import sqlite3
 
@@ -134,7 +133,6 @@ Run a query that shows us all the unique country names (the short version).
 
 
 ```python
-#__SOLUTION__
 cursor.execute('''SELECT DISTINCT country_name_short 
                     FROM view_election 
                 ''')
@@ -193,7 +191,6 @@ HINT: Use full string of date: Ex: "2021-28-21"
 
 
 ```python
-#__SOLUTION__
 query = '''SELECT COUNT(*) FROM view_election
             WHERE country_name_short = "FRA"
             AND election_date >= "1990-01-01"
@@ -219,7 +216,6 @@ Hint: Use GROUP BY operator (group by needs an aggregate)
 
 
 ```python
-#__SOLUTION__
 query = '''SELECT party_name, AVG(vote_share) as avg_vote_share FROM view_election
             WHERE country_name_short = "GBR"
             AND election_date >= "2000-01-01" 
